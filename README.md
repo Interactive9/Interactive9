@@ -3,6 +3,6 @@ BombSquadAR
 This is our work diary:
 
 
-week ?:
+week 3:
 
-bla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla bla.
+Vi har gjort en power point över vår idé presentation och en app som planterar en bomb genom augmented reality.
