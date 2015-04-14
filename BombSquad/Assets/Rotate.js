@@ -1,4 +1,4 @@
 ﻿
 function Update () {
-	transform.Rotate(0, 0, 15*Time.deltaTime);
+	transform.Rotate(0, 10*Time.deltaTime, 15*Time.deltaTime);
 }
