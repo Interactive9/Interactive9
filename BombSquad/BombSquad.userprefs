@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Qualcomm Augmented Reality\Scripts\ImageTargetBehaviour.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Rotate.js">
     <Files>
-      <File FileName="Assets\Qualcomm Augmented Reality\Scripts\ImageTargetBehaviour.cs" Line="1" Column="1" />
-      <File FileName="Assets\Rotate.js" Line="1" Column="1" />
-      <File FileName="Assets\Qualcomm Augmented Reality\Scripts\DefaultTrackableEventHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Qualcomm Augmented Reality\Scripts\DefaultTrackableEventHandler.cs" Line="109" Column="73" />
+      <File FileName="Assets\Rotate.js" Line="27" Column="69" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -106,8 +106,9 @@ namespace Vuforia
 				float butWidt = 200;
 				float butHght = 80;
 
-				if(GUI.Button(new Rect(Screen.width/4 - butWidt, Screen.height/2 - butHght/2,butWidt,butHght), "Disarm", myButtonStyle)){
+				if(GUI.Button(new Rect(Screen.width/2 - butWidt/2, Screen.height -2*butHght,butWidt,butHght), "Disarm", myButtonStyle)){
 					Debug.Log("It worked!!");
+					Handheld.Vibrate();
 				}
 			}
 		}
