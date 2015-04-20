@@ -14,6 +14,8 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
+
+		private bool drawButton = false;
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
@@ -83,8 +85,32 @@ namespace Vuforia
                 component.enabled = true;
             }
 
+			drawButton = true;
+
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
         }
+
+		void OnGUI() {
+			if (drawButton) {
+				GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+				myButtonStyle.fontSize = 50;
+				
+				// Load and set Font
+				Font myFont = (Font)Resources.Load("Fonts/comic", typeof(Font));
+				myButtonStyle.font = myFont;
+				
+				// Set color for selected and unselected buttons
+				myButtonStyle.normal.textColor = Color.red;
+				myButtonStyle.hover.textColor = Color.red;
+
+				float butWidt = 200;
+				float butHght = 80;
+
+				if(GUI.Button(new Rect(Screen.width/4 - butWidt, Screen.height/2 - butHght/2,butWidt,butHght), "Disarm", myButtonStyle)){
+					Debug.Log("It worked!!");
+				}
+			}
+		}
 
 
         private void OnTrackingLost()
@@ -104,6 +130,7 @@ namespace Vuforia
                 component.enabled = false;
             }
 
+			drawButton = false;
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
         }
 

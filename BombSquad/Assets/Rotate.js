@@ -4,7 +4,7 @@ function Update () {
 	
 	if(Input.GetKeyDown(KeyCode.Escape))
     {
-        Application.Quit();
+       Application.Quit();
         // or ask to quit
     }
 }
