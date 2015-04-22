@@ -108,7 +108,10 @@ namespace Vuforia
 
 				if(GUI.Button(new Rect(Screen.width/2 - butWidt/2, Screen.height -2*butHght,butWidt,butHght), "Disarm", myButtonStyle)){
 					Debug.Log("It worked!!");
-					Handheld.Vibrate();
+					AndroidJavaClass jc = new AndroidJavaClass ("com.unity3d.player.UnityPlayer"); 
+					AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject> ("currentActivity"); 
+					jo.Call ("Launch");
+
 				}
 			}
 		}
