@@ -4,7 +4,12 @@ public var style : GUIStyle;
 
 
 function Update () {
-	transform.Rotate(0, 10*Time.deltaTime, 15*Time.deltaTime);
+		if(Input.touches.Length > 0 && Input.GetTouch(0).phase == TouchPhase.Moved){
+			transform.rotation *= Quaternion.AngleAxis(-Input.GetTouch(0).deltaPosition.x, Vector3.up);
+		}
+		if(Input.touches.Length > 0 && Input.GetTouch(0).phase == TouchPhase.Moved){
+			transform.rotation *= Quaternion.AngleAxis(-Input.GetTouch(0).deltaPosition.y, Vector3.left);
+		}
 }
 
 function OnGUI() {
