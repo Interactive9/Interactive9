@@ -83,6 +83,7 @@
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WireframeBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WireframeTrackableEventHandler.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\WordBehaviour.cs" />
+     <Compile Include="Assets\Rotate.cs" />
      <None Include="Assets\StreamingAssets\QCAR\TestProject 1.xml" />
      <None Include="Assets\StreamingAssets\QCAR\RBS-Database.xml" />
      <None Include="Assets\link.xml" />
