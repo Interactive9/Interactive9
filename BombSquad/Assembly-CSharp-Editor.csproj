@@ -49,12 +49,11 @@
      <Compile Include="Assets\Editor\QCAR\Scripts\ComponentFactoryStarter\ComponentFactoryStarter.cs" />
      <Compile Include="Assets\Editor\QCAR\Scripts\ExtensionImport.cs" />
      <Compile Include="Assets\Editor\QCAR\Scripts\Unzipper\SharpZipLibUnzipper.cs" />
-     <None Include="Assets\StreamingAssets\QCAR\TestProject 1.xml" />
-     <None Include="Assets\StreamingAssets\QCAR\RBS-Database.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
      <None Include="Assets\license_3rdpartynotice.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
+     <None Include="Assets\StreamingAssets\QCAR\RBS.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VideoBackground.shader" />
      <None Include="Assets\StreamingAssets\QCAR\TestProject.xml" />
      <None Include="Assets\Editor\QCAR\WebcamProfiles\profiles.xml" />
