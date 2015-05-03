@@ -15,11 +15,10 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
 
-		private bool drawButton = false;
         #region PRIVATE_MEMBER_VARIABLES
- 
         private TrackableBehaviour mTrackableBehaviour;
-    
+		private bool drawButton = false;
+		private string guiText = "Bomb not found...";
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
@@ -84,19 +83,21 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
-
+			GetComponent<AudioSource>().Play();
+			GetComponent<AudioSource>().loop = true;
 			drawButton = true;
+			guiText = "Bomb found!";
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
         }
 
 		void OnGUI() {
 			if (drawButton) {
-				GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+				GUIStyle myButtonStyle = new GUIStyle (GUI.skin.button);
 				myButtonStyle.fontSize = 50;
 				
 				// Load and set Font
-				Font myFont = (Font)Resources.Load("Fonts/comic", typeof(Font));
+				Font myFont = (Font)Resources.Load ("Fonts/comic", typeof(Font));
 				myButtonStyle.font = myFont;
 				
 				// Set color for selected and unselected buttons
@@ -106,16 +107,28 @@ namespace Vuforia
 				float butWidt = 200;
 				float butHght = 80;
 
-				if(GUI.Button(new Rect(Screen.width/2 - butWidt/2, Screen.height -2*butHght,butWidt,butHght), "Disarm", myButtonStyle)){
-					Debug.Log("It worked!!");
+				if (GUI.Button (new Rect (Screen.width / 2 - butWidt / 2, Screen.height - 2 * butHght, butWidt, butHght), "Disarm", myButtonStyle)) {
+					Handheld.Vibrate ();
 					AndroidJavaClass jc = new AndroidJavaClass ("com.unity3d.player.UnityPlayer"); 
 					AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject> ("currentActivity"); 
 					jo.Call ("Launch");
 
 				}
 			}
-		}
 
+			//draw text
+			GUIStyle textStyle = new GUIStyle (GUI.skin.textArea);
+			textStyle.fontSize = 30;
+
+			Font myNewFont = (Font)Resources.Load ("Fonts/Normal", typeof(Font));
+			textStyle.font = myNewFont;
+
+			textStyle.normal.textColor = Color.green;
+			textStyle.hover.textColor = Color.green;
+
+			guiText = GUI.TextField (new Rect (Screen.width / 2 - 175, Screen.height / 30, 350, 70), guiText, textStyle);
+		
+		}
 
         private void OnTrackingLost()
         {
@@ -133,8 +146,9 @@ namespace Vuforia
             {
                 component.enabled = false;
             }
-
+			GetComponent<AudioSource>().loop = false;
 			drawButton = false;
+			guiText = "Bomb not found...";
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
         }
 
