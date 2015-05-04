@@ -126,7 +126,7 @@ namespace Vuforia
 			textStyle.normal.textColor = Color.green;
 			textStyle.hover.textColor = Color.green;
 
-			guiText = GUI.TextField (new Rect (Screen.width / 2 - 175, Screen.height / 30, 350, 70), guiText, textStyle);
+			GUI.Label (new Rect (Screen.width / 2 - 175, Screen.height / 30, 350, 70), guiText, textStyle);
 		
 		}
 
