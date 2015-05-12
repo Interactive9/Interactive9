@@ -14,7 +14,8 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
-
+		public GUIStyle Style;
+		public Texture2D text;
         #region PRIVATE_MEMBER_VARIABLES
         private TrackableBehaviour mTrackableBehaviour;
 		private bool drawButton = false;
@@ -93,8 +94,9 @@ namespace Vuforia
 
 		void OnGUI() {
 			if (drawButton) {
-				GUIStyle myButtonStyle = new GUIStyle (GUI.skin.button);
+				GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
 				myButtonStyle.fontSize = 50;
+				myButtonStyle.normal.background = text;
 				
 				// Load and set Font
 				Font myFont = (Font)Resources.Load ("Fonts/comic", typeof(Font));
@@ -104,10 +106,10 @@ namespace Vuforia
 				myButtonStyle.normal.textColor = Color.red;
 				myButtonStyle.hover.textColor = Color.red;
 
-				float butWidt = 200;
-				float butHght = 80;
+				float butWidt = 270;
+				float butHght = 110;
 
-				if (GUI.Button (new Rect (Screen.width / 2 - butWidt / 2, Screen.height - 2 * butHght, butWidt, butHght), "Disarm", myButtonStyle)) {
+				if (GUI.Button (new Rect (Screen.width / 2 - butWidt / 2, Screen.height - 2 * butHght, butWidt, butHght),"", myButtonStyle)) {
 					Handheld.Vibrate ();
 					AndroidJavaClass jc = new AndroidJavaClass ("com.unity3d.player.UnityPlayer"); 
 					AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject> ("currentActivity"); 
@@ -126,7 +128,7 @@ namespace Vuforia
 			textStyle.normal.textColor = Color.green;
 			textStyle.hover.textColor = Color.green;
 
-			GUI.Label (new Rect (Screen.width / 2 - 175, Screen.height / 30, 350, 70), guiText, textStyle);
+			GUI.Label (new Rect (Screen.width / 2 - 175, Screen.height / 30, 330, 80), guiText, textStyle);
 		
 		}
 
