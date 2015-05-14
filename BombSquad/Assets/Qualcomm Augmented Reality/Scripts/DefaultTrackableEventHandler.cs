@@ -14,7 +14,6 @@ namespace Vuforia
     public class DefaultTrackableEventHandler : MonoBehaviour,
                                                 ITrackableEventHandler
     {
-		public GUIStyle Style;
 		public Texture2D text;
         #region PRIVATE_MEMBER_VARIABLES
         private TrackableBehaviour mTrackableBehaviour;
@@ -33,6 +32,9 @@ namespace Vuforia
             {
                 mTrackableBehaviour.RegisterTrackableEventHandler(this);
             }
+
+			GetComponent<AudioSource>().Play();
+			GetComponent<AudioSource>().loop = true;
         }
 
         #endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -84,8 +86,7 @@ namespace Vuforia
             {
                 component.enabled = true;
             }
-			GetComponent<AudioSource>().Play();
-			GetComponent<AudioSource>().loop = true;
+			GetComponent<AudioSource> ().mute = false;
 			drawButton = true;
 			guiText = "Bomb found!";
 
@@ -97,6 +98,8 @@ namespace Vuforia
 				GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
 				myButtonStyle.fontSize = 50;
 				myButtonStyle.normal.background = text;
+				myButtonStyle.focused.background = text;
+				myButtonStyle.hover.background = text;
 				
 				// Load and set Font
 				Font myFont = (Font)Resources.Load ("Fonts/comic", typeof(Font));
@@ -148,7 +151,7 @@ namespace Vuforia
             {
                 component.enabled = false;
             }
-			GetComponent<AudioSource>().loop = false;
+			GetComponent<AudioSource> ().mute = true;
 			drawButton = false;
 			guiText = "Bomb not found...";
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
